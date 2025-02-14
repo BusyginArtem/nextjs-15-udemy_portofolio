@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import type { Metadata } from "next";
+import { Oswald } from "next/font/google";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+import MainHeader from "@/components/MainHeader";
+
+const oswald = Oswald({
+  weight: ["400", "500", "600", "700"],
+  style: ["normal"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +24,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${oswald.className} antialiased`}>
+        <div className="relative grid min-h-screen grid-rows-[6rem_1fr_20px] items-center justify-items-center bg-gradient-to-b from-grey-900 to-grey-800">
+          <MainHeader />
+          <main className="w-full px-4 pb-6 md:px-6">{children}</main>
+          <footer></footer>
+        </div>
       </body>
     </html>
   );
