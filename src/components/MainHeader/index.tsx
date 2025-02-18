@@ -1,10 +1,10 @@
 import Link from "next/link";
-import React from "react";
-import Logo from "./Logo";
+import Header from "./MainHeader";
+import Logo from "../Logo";
 
 export default function MainHeader() {
   return (
-    <header className="sticky top-0 flex h-24 w-full items-center justify-between bg-gray-700 px-[10%]">
+    <Header>
       <Link href="/">
         <Logo />
       </Link>
@@ -27,6 +27,6 @@ export default function MainHeader() {
           </Link>
         </li>
       </ul>
-    </header>
+    </Header>
   );
 }
